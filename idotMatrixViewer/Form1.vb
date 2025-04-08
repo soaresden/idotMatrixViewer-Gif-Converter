@@ -7,7 +7,6 @@ Public Class Form1
     Private isDrawing As Boolean = False
     Private startPoint As Point
     Private currentRect As Rectangle
-    Private Const PIXEL_SIZE As Integer = 64
     Private originalScreenshot As Bitmap = Nothing
 
     ' Timer for drawing updates
