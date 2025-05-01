@@ -37,9 +37,18 @@ Partial Class Form1
         Finalresultpicture = New PictureBox()
         screenshotbox = New PictureBox()
         AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
-        txtCropBoxValue = New TextBox()
+        txtCroppedX = New TextBox()
         txtPixelSize = New TextBox()
         Label2 = New Label()
+        chkboomerang = New CheckBox()
+        btnback = New Button()
+        btnforward = New Button()
+        txtsecskip = New TextBox()
+        Label3 = New Label()
+        txtCroppedY = New TextBox()
+        txtCroppedWidth = New TextBox()
+        lbllive = New Label()
+        lblcoordo = New Label()
         CType(Finalresultpicture, ComponentModel.ISupportInitialize).BeginInit()
         CType(screenshotbox, ComponentModel.ISupportInitialize).BeginInit()
         CType(AxWindowsMediaPlayer1, ComponentModel.ISupportInitialize).BeginInit()
@@ -111,9 +120,9 @@ Partial Class Form1
         ' 
         ' btnResetCrop
         ' 
-        btnResetCrop.Location = New Point(524, 330)
+        btnResetCrop.Location = New Point(456, 333)
         btnResetCrop.Name = "btnResetCrop"
-        btnResetCrop.Size = New Size(94, 29)
+        btnResetCrop.Size = New Size(93, 29)
         btnResetCrop.TabIndex = 9
         btnResetCrop.Text = "Reset Crop"
         btnResetCrop.UseVisualStyleBackColor = True
@@ -141,7 +150,7 @@ Partial Class Form1
         Finalresultpicture.Location = New Point(703, 89)
         Finalresultpicture.Name = "Finalresultpicture"
         Finalresultpicture.Size = New Size(235, 235)
-        Finalresultpicture.SizeMode = PictureBoxSizeMode.StretchImage
+        Finalresultpicture.SizeMode = PictureBoxSizeMode.Zoom
         Finalresultpicture.TabIndex = 12
         Finalresultpicture.TabStop = False
         ' 
@@ -149,7 +158,7 @@ Partial Class Form1
         ' 
         screenshotbox.Location = New Point(331, 89)
         screenshotbox.Name = "screenshotbox"
-        screenshotbox.Size = New Size(298, 191)
+        screenshotbox.Size = New Size(350, 191)
         screenshotbox.TabIndex = 13
         screenshotbox.TabStop = False
         ' 
@@ -162,12 +171,14 @@ Partial Class Form1
         AxWindowsMediaPlayer1.Size = New Size(298, 235)
         AxWindowsMediaPlayer1.TabIndex = 14
         ' 
-        ' txtCropBoxValue
+        ' txtCroppedX
         ' 
-        txtCropBoxValue.Location = New Point(368, 330)
-        txtCropBoxValue.Name = "txtCropBoxValue"
-        txtCropBoxValue.Size = New Size(125, 27)
-        txtCropBoxValue.TabIndex = 15
+        txtCroppedX.Location = New Point(530, 290)
+        txtCroppedX.Name = "txtCroppedX"
+        txtCroppedX.Size = New Size(47, 27)
+        txtCroppedX.TabIndex = 15
+        txtCroppedX.Text = "0"
+        txtCroppedX.TextAlign = HorizontalAlignment.Center
         ' 
         ' txtPixelSize
         ' 
@@ -187,14 +198,105 @@ Partial Class Form1
         Label2.TabIndex = 17
         Label2.Text = "PixelSize"
         ' 
+        ' chkboomerang
+        ' 
+        chkboomerang.AutoSize = True
+        chkboomerang.Location = New Point(331, 328)
+        chkboomerang.Name = "chkboomerang"
+        chkboomerang.Size = New Size(109, 24)
+        chkboomerang.TabIndex = 18
+        chkboomerang.Text = "Boomerang"
+        chkboomerang.UseVisualStyleBackColor = True
+        ' 
+        ' btnback
+        ' 
+        btnback.Location = New Point(12, 328)
+        btnback.Name = "btnback"
+        btnback.Size = New Size(94, 29)
+        btnback.TabIndex = 19
+        btnback.Text = "<<"
+        btnback.UseVisualStyleBackColor = True
+        ' 
+        ' btnforward
+        ' 
+        btnforward.Location = New Point(217, 328)
+        btnforward.Name = "btnforward"
+        btnforward.Size = New Size(94, 29)
+        btnforward.TabIndex = 20
+        btnforward.Text = ">>"
+        btnforward.UseVisualStyleBackColor = True
+        ' 
+        ' txtsecskip
+        ' 
+        txtsecskip.Location = New Point(331, 286)
+        txtsecskip.Name = "txtsecskip"
+        txtsecskip.Size = New Size(42, 27)
+        txtsecskip.TabIndex = 21
+        txtsecskip.Text = "0,5"
+        txtsecskip.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(379, 290)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(60, 20)
+        Label3.TabIndex = 22
+        Label3.Text = "sec skip"
+        ' 
+        ' txtCroppedY
+        ' 
+        txtCroppedY.Location = New Point(583, 290)
+        txtCroppedY.Name = "txtCroppedY"
+        txtCroppedY.Size = New Size(39, 27)
+        txtCroppedY.TabIndex = 23
+        txtCroppedY.Text = "0"
+        txtCroppedY.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' txtCroppedWidth
+        ' 
+        txtCroppedWidth.Location = New Point(628, 290)
+        txtCroppedWidth.Name = "txtCroppedWidth"
+        txtCroppedWidth.Size = New Size(53, 27)
+        txtCroppedWidth.TabIndex = 24
+        txtCroppedWidth.Text = "0"
+        txtCroppedWidth.TextAlign = HorizontalAlignment.Center
+        ' 
+        ' lbllive
+        ' 
+        lbllive.AutoSize = True
+        lbllive.Location = New Point(590, 320)
+        lbllive.Name = "lbllive"
+        lbllive.Size = New Size(91, 20)
+        lbllive.TabIndex = 25
+        lbllive.Text = "X[#;#];Y[#;#]"
+        ' 
+        ' lblcoordo
+        ' 
+        lblcoordo.AutoSize = True
+        lblcoordo.Location = New Point(590, 343)
+        lblcoordo.Name = "lblcoordo"
+        lblcoordo.Size = New Size(91, 20)
+        lblcoordo.TabIndex = 26
+        lblcoordo.Text = "X[#;#];Y[#;#]"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(953, 364)
+        ClientSize = New Size(953, 372)
+        Controls.Add(lblcoordo)
+        Controls.Add(lbllive)
+        Controls.Add(txtCroppedWidth)
+        Controls.Add(txtCroppedY)
+        Controls.Add(Label3)
+        Controls.Add(txtsecskip)
+        Controls.Add(btnforward)
+        Controls.Add(btnback)
+        Controls.Add(chkboomerang)
         Controls.Add(Label2)
         Controls.Add(txtPixelSize)
-        Controls.Add(txtCropBoxValue)
+        Controls.Add(txtCroppedX)
         Controls.Add(Finalresultpicture)
         Controls.Add(screenshotbox)
         Controls.Add(AxWindowsMediaPlayer1)
@@ -231,7 +333,17 @@ Partial Class Form1
     Friend WithEvents Finalresultpicture As PictureBox
     Friend WithEvents screenshotbox As PictureBox
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
-    Friend WithEvents txtCropBoxValue As TextBox
+    Friend WithEvents txtCroppedX As TextBox
     Friend WithEvents txtPixelSize As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents chkboomerang As CheckBox
+    Friend WithEvents btnback As Button
+    Friend WithEvents btnforward As Button
+    Friend WithEvents txtsecskip As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents gifAnimationTimer As Timer
+    Friend WithEvents txtCroppedY As TextBox
+    Friend WithEvents txtCroppedWidth As TextBox
+    Friend WithEvents lbllive As Label
+    Friend WithEvents lblcoordo As Label
 End Class
